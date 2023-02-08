@@ -47,8 +47,8 @@ body {
 }
 
 #app {
-  width: 100vh;
-  height: 100vh;
+  width: 100vw;
+  height: 150vh;
   background: #343541;
   margin-left: 70px;
   display: flex;
