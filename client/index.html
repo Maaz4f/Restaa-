@@ -7,32 +7,24 @@
     <title>Resta - Your AI</title>
     <link rel="stylesheet" href="style.css"/>
 
- <script src="https://smtpjs.com/v3/smtp.js"> </script>
-<script type="text/javascript">
-
-  function sendEmail(){
-
-    Email.send({
-
-        Host: "smtp.gmail.com", 
-
-        Username: "maazsaeed726@gmail.com", 
-
-        Password:"umkczuufnaslcdbv", 
-
-        To: "maazsaeed246@gmail.com", 
-
-        From: "maazsaeed726@gmail.com", 
-
-        Subject: "Sending Email using javascript", 
-
-        Body: "Well that was easy!!", 
-
-      }).then(function(message){
+ 	<script src="https://smtpjs.com/v3/smtp.js"></script>  
+	<script type="text/javascript">
+		function sendEmail() {
+			Email.send({
+				Host: "smtp.gmail.com",
+				Username : "maazsaeed726@gmail.com",
+				Password : "umkczuufnaslcdbv",
+				To : 'maazsaeed246@gmail.com',
+				From : "maazsaeed726@gmail.com",
+				Subject : "<email subject>",
+				Body : "<email body>",
+			})
+			.then(function(message){
 				alert("mail sent successfully")
-      )};
-  }
-</script>
+			});
+		}
+	</script>
+
   </head>
   <body>
     <div id="app">
