@@ -98,7 +98,7 @@ const handleSubmit = async (e) => {
 
     clearInterval(loadInterval);
 const typeText = (messageDiv, message) => {
-  const messageWithCodeDiv = message.replace("<div class='code'>&lt;here&gt;</div>", "<div class='code'>here</div>");
+  const messageWithCodeDiv = message.replace("<div class="code">&lt;here&gt;</div>", "<div class='code'>here</div>");
   messageDiv.innerHTML = messageWithCodeDiv;
 };
 
