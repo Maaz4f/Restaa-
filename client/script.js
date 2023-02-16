@@ -106,11 +106,11 @@ const typeText = (messageDiv, message) => {
 
 if (response.ok) {
   const data = await response.json();
-  const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
+  const err = await response.text()
+  const parsedData = err.bot.trim() // trims any trailing spaces/'\n' 
 
   typeText(messageDiv, parsedData)
-} else {
-  const err = await response.text()
+} 
 
   messageDiv.innerHTML = "Something went wrong"
   alert(err)
