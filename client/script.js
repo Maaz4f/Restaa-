@@ -128,7 +128,7 @@ speakButton.addEventListener('click', () => {
     .then(response => response.json())
     .then(data => {
       // create a new SpeechSynthesisUtterance object with the response text
-      const utterance = new SpeechSynthesisUtterance(response.txt);
+      const utterance = new SpeechSynthesisUtterance(response.text);
       
       // speak the response
       speechSynthesis.speak(utterance);
