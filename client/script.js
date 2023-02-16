@@ -97,21 +97,26 @@ const handleSubmit = async (e) => {
     })
 
     clearInterval(loadInterval);
-    messageDiv.innerHTML = " "
+const typeText = (messageDiv, message) => {
+  const messageWithCodeDiv = message.replace("<div class='code'>&lt;here&gt;</div>", "<div class='code'>here</div>");
+  messageDiv.innerHTML = messageWithCodeDiv;
+};
 
-    if (response.ok) {
-        const data = await response.json();
-        const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
+// ...
 
-        typeText(messageDiv, parsedData)
-    } else {
-        const err = await response.text()
+if (response.ok) {
+  const data = await response.json();
+  const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
-        messageDiv.innerHTML = "Something went wrong"
-        alert(err)
-    }
+  typeText(messageDiv, parsedData)
+} else {
+  const err = await response.text()
+
+  messageDiv.innerHTML = "Something went wrong"
+  alert(err)
 }
 
+       
 
 
 
