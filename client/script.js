@@ -123,12 +123,12 @@ speakButton.addEventListener('click', () => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ prompt: 'your prompt here' })
+    body: JSON.stringify({ prompt:response.text})
   })
     .then(response => response.json())
     .then(data => {
       // create a new SpeechSynthesisUtterance object with the response text
-      const utterance = new SpeechSynthesisUtterance(data.bot);
+      const utterance = new SpeechSynthesisUtterance(response.txt);
       
       // speak the response
       speechSynthesis.speak(utterance);
