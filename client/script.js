@@ -111,6 +111,33 @@ const handleSubmit = async (e) => {
         alert(err)
     }
 }
+// create a new button element
+const speakButton = document.createElement('button');
+speakButton.innerText = 'Speak';
+
+// add an event listener to the button
+speakButton.addEventListener('click', () => {
+  // get the response from the server
+  fetch('/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ prompt: 'your prompt here' })
+  })
+    .then(response => response.json())
+    .then(data => {
+      // create a new SpeechSynthesisUtterance object with the response text
+      const utterance = new SpeechSynthesisUtterance(data.bot);
+      
+      // speak the response
+      speechSynthesis.speak(utterance);
+    })
+    .catch(error => console.error(error));
+});
+
+// add the button to the DOM
+document.body.appendChild(speakButton);
 
 form.addEventListener('submit', handleSubmit)
 form.addEventListener('keyup', (e) => {
