@@ -112,7 +112,7 @@ const handleSubmit = async (e) => {
     }
 }
 // create a new button element
-const speakButton = document.createElement('button');
+const speakButton = document.getElementbyid('button');
 speakButton.innerText = 'Speak';
 
 // add an event listener to the button
