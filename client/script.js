@@ -142,8 +142,6 @@ const body = document.querySelector('body');
 // append the button to the body
 body.appendChild(speakButton);
 
-});
-
 
 form.addEventListener('submit', handleSubmit)
 form.addEventListener('keyup', (e) => {
