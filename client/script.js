@@ -123,7 +123,7 @@ speakButton.addEventListener('click', () => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ prompt: response.text() })
+    body: JSON.stringify({ prompt: 'your prompt here' })
   })
     .then(response => response.json())
     .then(data => {
@@ -136,8 +136,14 @@ speakButton.addEventListener('click', () => {
     .catch(error => console.error(error));
 });
 
-// add the button to the DOM
-document.body.appendChild(speakButton);
+// get the HTML body element
+const body = document.querySelector('body');
+
+// append the button to the body
+body.appendChild(speakButton);
+
+});
+
 
 form.addEventListener('submit', handleSubmit)
 form.addEventListener('keyup', (e) => {
