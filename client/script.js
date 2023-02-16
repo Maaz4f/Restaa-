@@ -123,7 +123,7 @@ speakButton.addEventListener('click', () => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ prompt: 'your prompt here' })
+    body: JSON.stringify({ prompt: response.text() })
   })
     .then(response => response.json())
     .then(data => {
