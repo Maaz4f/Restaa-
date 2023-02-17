@@ -74,7 +74,6 @@ const handleSubmit = async (e) => {
     const messageDiv = document.getElementById(uniqueId);
     loader(messageDiv);
 
-    try {
         const response = await fetch('https://LegitimateIvoryLivedistro.maaz-gamergamer.repl.co/', {
             method: 'POST',
             headers: {
@@ -107,5 +106,5 @@ form.addEventListener('submit', handleSubmit);
 form.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
         handleSubmit(e);
-    }
+    
 });
