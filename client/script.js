@@ -97,12 +97,19 @@ const handleSubmit = async (e) => {
     })
 
     clearInterval(loadInterval);
-const typeText = (messageDiv, message) => {
-  const messageWithCodeDiv = message.replace("<div class='code'>&lt;here&gt;</div>", "<div class='code'>here</div>");
-  messageDiv.innerHTML = messageWithCodeDiv;
-};
+function typeText(element, text) {
+    let index = 0
 
-// ...
+    let interval = setInterval(() => {
+        if (index < text.length) {
+            element.innerHTML += text.charAt(index)
+            index++
+        } else {
+            clearInterval(interval)
+        }
+    }, 20)
+}
+
 
 if (response.ok) {
   const data = await response.json();
