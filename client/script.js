@@ -14,11 +14,11 @@ function loader(element) {
         element.textContent += '.';
 
         // If the loading indicator has reached three dots, reset it
-        if (element.textContent === '....') {
-            element.textContent = '';
-        }
-    }, 300);
+     if (element.textContent === '....') {
+    element.textContent = '';
+    clearInterval(loadInterval)
 }
+
 
 function typeText(element, text) {
     let index = 0
@@ -61,6 +61,7 @@ function chatStripe(isAi, value, uniqueId) {
     `
     )
 }
+chatContainer.scrollTop = chatContainer.scrollHeight
 
 const handleSubmit = async (e) => {
     e.preventDefault()
@@ -86,6 +87,7 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv);
 
+try {
     const response = await fetch('https://LegitimateIvoryLivedistro.maaz-gamergamer.repl.co/', {
         method: 'POST',
         headers: {
@@ -96,20 +98,20 @@ const handleSubmit = async (e) => {
         })
     })
 
+    if (response.ok) {
+        const data = await response.json();
+       
+        const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
+        typeText(messageDiv, parsedData)
+    } else {
+        const err = await response.text()
 
-if (response.ok) {
-  const data = await response.json();
- 
-  const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
-
-  typeText(messageDiv, parsedData)
-} else {
-
-  const err = await response.text()
-
-  messageDiv.innerHTML = "Something went wrong"
-  alert(err)
+        messageDiv.innerHTML = "Something went wrong"
+        alert(err)
+    }
+} catch (error) {
+    messageDiv.innerHTML = "Network error. Please check your internet connection."
 }
 
        
