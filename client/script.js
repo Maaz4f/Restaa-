@@ -7,8 +7,8 @@ const chatContainer = document.querySelector('#chat_container')
 let loadInterval
 
 function loader(element) {
-    element.textContent = ''
-
+    element.textContent = '';
+};
     loadInterval = setInterval(() => {
         // Update the text content of the loading indicator
         element.textContent += '.';
@@ -59,9 +59,9 @@ function chatStripe(isAi, value, uniqueId) {
             </div>
         </div>
     `
-    )
-}
-chatContainer.scrollTop = chatContainer.scrollHeight
+    );
+};
+
 
 const handleSubmit = async (e) => {
     e.preventDefault()
@@ -97,7 +97,7 @@ try {
             prompt: data.get('prompt')
         })
     })
-
+chatContainer.scrollTop = chatContainer.scrollHeight
     if (response.ok) {
         const data = await response.json();
        
